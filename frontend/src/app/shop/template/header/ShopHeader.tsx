@@ -54,47 +54,6 @@ const ShopHeader = () => {
                             010-xxxx-xxxx
                         </div>
 
-                        <div className="col-sm-auto py-4">
-                            {/*<ul className="list-inline mb-0">*/}
-                            {/*    <li className="list-inline-item position-relative">*/}
-                            {/*        <a href="#"*/}
-                            {/*            className="text-white opacity-50 text-hover-primary text-decoration-none fw-bold">나의잔액</a>*/}
-                            {/*    </li>*/}
-                            {/*    <li className="list-inline-item text-white opacity-25">|</li>*/}
-                            {/*    <li className="list-inline-item position-relative">*/}
-                            {/*        <a href="#"*/}
-                            {/*            className="text-white opacity-50 text-hover-primary text-decoration-none fw-bold">{currentUser?.money}원</a>*/}
-                            {/*    </li>*/}
-                            {/*</ul>*/}
-                        </div>
-
-                        <div className="col-sm-auto py-4">
-                            {/*<ul className="list-inline mb-0">*/}
-                            {/*    <li className="list-inline-item position-relative">*/}
-                            {/*        <a href="#"*/}
-                            {/*            className="text-white opacity-50 text-hover-primary text-decoration-none fw-bold">나의잔액</a>*/}
-                            {/*    </li>*/}
-                            {/*    <li className="list-inline-item text-white opacity-25">|</li>*/}
-                            {/*    <li className="list-inline-item position-relative">*/}
-                            {/*        <a href="#"*/}
-                            {/*            className="text-white opacity-50 text-hover-primary text-decoration-none fw-bold">{currentUser?.money}원</a>*/}
-                            {/*    </li>*/}
-                            {/*</ul>*/}
-                        </div>
-
-                        <div className="col-sm-auto py-4">
-                            {/*<ul className="list-inline mb-0">*/}
-                            {/*    <li className="list-inline-item position-relative">*/}
-                            {/*        <a href="#"*/}
-                            {/*            className="text-white opacity-50 text-hover-primary text-decoration-none fw-bold">나의잔액</a>*/}
-                            {/*    </li>*/}
-                            {/*    <li className="list-inline-item text-white opacity-25">|</li>*/}
-                            {/*    <li className="list-inline-item position-relative">*/}
-                            {/*        <a href="#"*/}
-                            {/*            className="text-white opacity-50 text-hover-primary text-decoration-none fw-bold">{currentUser?.money}원</a>*/}
-                            {/*    </li>*/}
-                            {/*</ul>*/}
-                        </div>
 
                         <div className="col-sm-auto py-4 flex-grow-1 flex justify-content-end">
                             <ul className="list-inline mb-0">
