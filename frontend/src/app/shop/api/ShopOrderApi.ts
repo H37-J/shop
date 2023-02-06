@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios, {AxiosResponse} from 'axios'
 import {string} from "yup";
 import {PRODUCT_CATEGORY_LIST_URL} from "./ShopProductApi";
 

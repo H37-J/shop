@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <title>H</title>
+
+    <link
+      href="//fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"
+      rel="stylesheet"
+    />
+    <link href="./css/shop.css" rel="stylesheet" />
+
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <style>
+      #textarea {
+        -moz-appearance: textfield-multiline;
+        -webkit-appearance: textarea;
+        border: 1px solid gray;
+        font: medium -moz-fixed;
+        font: -webkit-small-control;
+        height: 28px;
+        overflow: auto;
+        padding: 2px;
+        resize: both;
+        width: 400px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="imageBox">
+      <div>
+        <button type="button" onclick="fileSet()">이미지업로드</button>
+      </div>
+      <div id="fileList">
+        <input
+          class="file"
+          type="file"
+          id="fileSelect0"
+          onchange="imageSet(this)"
+        />
+      </div>
+      <div
+        id="textarea"
+        contenteditable
+        style="width: 600px; height: 400px; margin: 20px"
+      >
+    
+    </div>
+    </div>
+
+    <button type="button" onclick="fileUplload()">업로드시작</button>
+  </body>
+
+  <script type="text/javascript">
+    var fileList = [];
+    var currentFileSelect = 0;
+    var currentFileSelector = "fileSelect" + currentFileSelect;
+    var fileSelect = document.getElementById(currentFileSelector);
+
+    const textarea = document.getElementById("textarea");
+
+    const fileSet = () => {
+      fileSelect = document.getElementById(currentFileSelector);
+      fileSelect.click();
+    };
+
+    const imageSet = (input) => {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+          const img = document.createElement("img");
+          img.src = e.target.result;
+          img.style.width = "400px";
+          img.style.height = "300px";
+          img.id = "image";
+          img.setAttribute("selectFile", currentFileSelector);
+
+          console.log(fileSelect);
+
+          const textarea = document.getElementById("textarea");
+          textarea.appendChild(img);
+
+          img.addEventListener("DOMNodeRemoved", (e) => {
+            console.log(e.target.getAttribute("selectFile"));
+            const fileDeleted = document.getElementById(
+              e.target.getAttribute("selectFile")
+            );
+            fileDeleted.remove();
+          });
+
+          const file = document.createElement("input");
+          file.type = "file";
+          currentFileSelect++;
+          currentFileSelector = "fileSelect" + currentFileSelect;
+
+          file.id = currentFileSelector;
+          file.onchange = (_this) => {
+            imageSet(_this.target);
+          };
+
+          const fileList = document.getElementById("fileList");
+          fileList.appendChild(file);
+        };
+
+        reader.readAsDataURL(input.files[0]);
+      }
+    };
+
+    const fileUplload = () => {
+      fileList = []
+      document
+        .getElementById("fileList")
+        .querySelectorAll('[type="file"]')
+        .forEach((file) => {
+          
+          fileList.push(file.files[0].name)
+          console.log(fileList)
+          console.log(textarea.innerHTML)
+          // const formData = new FormData();
+          // formData.append("img", file.files[0]);
+          // axios.postForm("http://localhost:3000/multipart", formData)
+          // .then((res) => alert(res))
+    
+        });
+    };
+
+    // const onElementRemoved = (element, callback) => {
+    //   new MutationObserver(function (mutations) {
+    //     if (!document.body.contains(element)) {
+    //       callback();
+    //       this.disconnect();
+    //     }
+    //   }).observe(element.parentElement, { childList: true });
+    // };
+
+    // onElementRemoved(fileSelect, function () {
+
+    //    console.log("yourElement was removed!");
+    // });
+  </script>
+</html>

@@ -1,6 +1,4 @@
-import axios from 'axios'
-
-import {AxiosResponse} from 'axios'
+import axios, {AxiosResponse} from 'axios'
 import {Response} from '../helpers/query/QueryModels'
 import {Likes} from '../models/ShopLikesModels'
 

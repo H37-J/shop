@@ -11,7 +11,6 @@ import java.util.stream.Stream;
 public enum OrderStatus {
     PAYING("결제중"),
     COMPLETE("결제완료"),
-
     SHIPPING("배송중"),
     REFUND("환불완료");
 
