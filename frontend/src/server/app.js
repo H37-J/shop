@@ -17,7 +17,8 @@ app.get('/', (req, res) => {
 })
 
 app.post('/post', (req, res) => {
-    console.log(req)
+    console.log(req.params)
+    console.log(req.body)
     return res
 
 })
