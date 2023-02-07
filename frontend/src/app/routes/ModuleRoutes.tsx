@@ -4,6 +4,7 @@ import { ShopLoginPage } from '../shop/pages/auth/ShopLoginPage'
 import { ShopLayout } from '../shop/template/ShopLayout'
 import axios from 'axios'
 import {UserTestComponent} from "../modules/components/UserTestComponent";
+import {CounterTestComponent} from "../modules/components/CounterTestComponent";
 const ModuleRoutes = () => {
 
     return (
@@ -20,13 +21,15 @@ const ModuleRoutes = () => {
                 <Route
                     path="/test2"
                     element={
-                        <UserTestComponent/>
+                        <>
+                            <UserTestComponent/>
+                            <CounterTestComponent/>
+                        </>
                     } />
             </Route>
         </Routes>
     )
 }
-
 
 type User = {
     email: string

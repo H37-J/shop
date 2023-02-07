@@ -1,7 +1,7 @@
 const INCREASE = 'INCREASE'
 const DECREASE = 'DECREASE'
 
-export const inncrease = () => ({type: INCREASE})
+export const increase = () => ({type: INCREASE})
 export const decrease = () => ({type: DECREASE})
 
 const initialState = 0
