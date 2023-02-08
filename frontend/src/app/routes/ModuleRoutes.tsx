@@ -1,33 +1,73 @@
-import React, { createContext, Dispatch, FC, SetStateAction, useContext, useEffect, useReducer, useRef, useState } from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { ShopLoginPage } from '../shop/pages/auth/ShopLoginPage'
-import { ShopLayout } from '../shop/template/ShopLayout'
+import React, {
+    createContext,
+    Dispatch,
+    FC,
+    SetStateAction,
+    useContext,
+    useEffect,
+    useReducer,
+    useRef,
+    useState
+} from 'react'
+import {BrowserRouter, Route, Routes, Link} from 'react-router-dom'
+import {ShopLoginPage} from '../shop/pages/auth/ShopLoginPage'
+import {ShopLayout} from '../shop/template/ShopLayout'
 import axios from 'axios'
 import {UserTestComponent} from "../modules/components/UserTestComponent";
 import {CounterTestComponent} from "../modules/components/CounterTestComponent";
+import {AxiosTestComponent} from "../modules/components/AxiosTestComponent";
+import {RouterTestComponent} from "../modules/components/RotuerTestComponent";
+import { TypeScriptComponents } from '../modules/components/TypeScriptComponents'
+
 const ModuleRoutes = () => {
 
+    // @ts-ignore
     return (
-        <Routes>
-            <Route>
-                <Route
-                    path="/test"
-                    element={
-                        <>
-                            <Test />
-                            <Counter />
-                        </>
-                    } />
-                <Route
-                    path="/test2"
-                    element={
-                        <>
-                            <UserTestComponent/>
-                            <CounterTestComponent/>
-                        </>
-                    } />
-            </Route>
-        </Routes>
+        <>
+            <Link to="/modules/test">test</Link>
+            <Link to="/modules/axios">axios</Link>
+            <Routes>
+                <Route>
+                    <Route
+                        path="/test"
+                        element={
+                            <>
+                                <Test/>
+                                <Counter/>
+                            </>
+                        }/>
+                    <Route
+                        path="/test2"
+                        element={
+                            <>
+                                <UserTestComponent/>
+                                <CounterTestComponent/>
+                            </>
+                        }/>
+                    <Route
+                        path="/axios"
+                        element={
+                            <>
+                                <AxiosTestComponent/>
+                            </>
+                        }/>
+                    <Route
+                        path="/types"
+                        element={
+                            <>
+                                <TypeScriptComponents/>
+                            </>
+                        }/>
+                    <Route
+                        path="/profiles/:username"
+                        element={
+                            <>
+                                <RouterTestComponent/>
+                            </>
+                        }/>
+                </Route>
+            </Routes>
+        </>
     )
 }
 
@@ -52,8 +92,10 @@ const TestContextPropsState = {
         email: 'these990712@gmail.com',
         password: 'star8903'
     },
-    setUser: () => { },
-    logout: () => { },
+    setUser: () => {
+    },
+    logout: () => {
+    },
     str: 'test'
 }
 
@@ -63,7 +105,7 @@ const useTestData = () => {
     return useContext(TestContext)
 }
 
-const TestProvider: FC<Props> = ({ children }) => {
+const TestProvider: FC<Props> = ({children}) => {
     const [user, setUser] = useState<User | undefined>(TestContextPropsState.user)
     const [str, setStr] = useState<string>('test')
 
@@ -73,12 +115,11 @@ const TestProvider: FC<Props> = ({ children }) => {
     }
 
     return (
-        <TestContext.Provider value={{ user, setUser, logout, str }}>
+        <TestContext.Provider value={{user, setUser, logout, str}}>
             {children}
         </TestContext.Provider>
     )
 }
-
 
 
 type ArrayProps = {
@@ -93,7 +134,8 @@ const ArrayPropsState = {
             password: 'test2'
         }
     ],
-    setArr: () => { }
+    setArr: () => {
+    }
 }
 
 const initState = {
@@ -106,7 +148,8 @@ const reducer = (state: any, action: any) => {
             return {
                 number: state.number + 1
             }
-        default: return state
+        default:
+            return state
     }
 }
 
@@ -114,7 +157,7 @@ const Counter = () => {
     const [state, dispatch] = useReducer(reducer, initState)
 
     const add = () => {
-        dispatch({ type: 'ADD' })
+        dispatch({type: 'ADD'})
     }
 
     return (
@@ -127,17 +170,18 @@ const Counter = () => {
 
 
 const Test = () => {
-    const { user, setUser } = useTestData()
+    const {user, setUser} = useTestData()
     const [arr, setArr] = useState<User[]>(ArrayPropsState.arr)
     const e = useRef<HTMLInputElement>(null)
 
     useEffect(() => {
         const value = (e.current as HTMLInputElement).value
-        return () => { }
+        return () => {
+        }
     }, [])
 
     const test = async () => {
-        const { data: data } = await AxiosPost()
+        const {data: data} = await AxiosPost()
         setUser(data)
     }
 
@@ -179,7 +223,7 @@ const Test = () => {
             {arrayRender()}
 
 
-            <input type="text" ref={e} defaultValue="TestValue" />
+            <input type="text" ref={e} defaultValue="TestValue"/>
 
             <div>
                 <button type="button" onClick={() => addArray()}>버튼</button>
@@ -189,7 +233,7 @@ const Test = () => {
 }
 
 const TestTwo = () => {
-    const { user, setUser } = useTestData()
+    const {user, setUser} = useTestData()
     const didRequest = useRef(false)
 
 
@@ -213,4 +257,4 @@ const TestTwo = () => {
     )
 }
 
-export { ModuleRoutes, TestProvider, useTestData }
+export {ModuleRoutes, TestProvider, useTestData}
