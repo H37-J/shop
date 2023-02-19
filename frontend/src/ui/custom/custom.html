@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <title>H</title>
+
+    <link href="//fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet" />
+    <link href="/css/shop.css" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+<div class="flex justify-content-center align-items-center h-100">
+    <div class="border border-success bg-success p-8">BOX</div>
+
+    <div id="users">
+
+    </div>
+</div>
+
+</body>
+
+<script>
+    const axiosGetTest = () => {
+        axios.get('https://cheese10yun.github.io/archive/')
+            .then((res) => console.log(res))
+    }
+
+    const axiosPostTest = (email, password) => {
+        return axios.post('http://localhost:3001/post', {
+            email,
+            password
+        })
+    }
+
+    axiosPostTest('these9907@naver.com', 'star8903')
+        .then((res) => {
+            document.querySelector('#users').textContent = res.data.email
+            console.log(res.data.email)
+        })
+
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</html>

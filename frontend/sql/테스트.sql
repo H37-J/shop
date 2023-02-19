@@ -1,0 +1,5 @@
+SELECT ROW_NUMBER() OVER (ORDER BY 과세기간종료년월 DESC) AS ROW_NUMBER,
+       *
+FROM 법인세신고기간
+WHERE 1 = 1
+AND 과세기간종료

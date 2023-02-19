@@ -45,6 +45,7 @@
     "mobx-react": "^7.6.0",
     "mongoose": "^6.3.1",
     "morgan": "^1.10.0",
+    "mssql": "^9.1.1",
     "mysql": "^2.18.1",
     "node-polyfill-webpack-plugin": "^1.1.4",
     "path": "^0.12.7",
