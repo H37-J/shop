@@ -3,7 +3,7 @@ import qs from 'qs'
 import {Response} from "../helpers/query/QueryModels";
 import {User} from "../models/ShopUserModels";
 
-const API_URL = 'http://121.140.60.190:8080'
+const API_URL = 'http://localhost:8080'
 
 export const GET_URL = `${API_URL}/api/shop/user/get`
 export const LOGIN_URL = `${API_URL}/api/shop/user/login`

@@ -114,7 +114,7 @@ public class Product extends Base {
         this.status = request.getStatus() == null ? this.status : request.getStatus();
         this.mainCategory = request.getMainCategory() == null ? this.mainCategory : request.getMainCategory();
         this.subCategory = request.getSubCategory() == null ? this.subCategory : request.getSubCategory();
-        String path = "https://shop-upload.s3.ap-northeast-2.amazonaws.com/static/" + request.getImg();
+        String path = "https://shop-upload.s3.ap-southeast-2.amazonaws.com/static/" + request.getImg();
         this.img = request.getImg() == null ? this.img : path;
     }
 

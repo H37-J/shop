@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = 'http://121.140.60.190:8080'
+const API_URL = 'http://localhost:8080'
 
 export const PRODUCT_GET_URL = `${API_URL}/api/shop/product/get`
 export const PRODUCT_LIST_URL = `${API_URL}/api/shop/product/page/list`

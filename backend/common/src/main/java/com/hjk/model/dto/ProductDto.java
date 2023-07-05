@@ -50,7 +50,7 @@ public class ProductDto {
 
         public Product toEntity() {
 
-            String path = "https://shop-upload.s3.ap-northeast-2.amazonaws.com/static/" + this.img;
+            String path = "https://shop-upload.s3.ap-southeast-2.amazonaws.com/static/" + this.img;
 
             return Product.builder()
                     .name(this.name)

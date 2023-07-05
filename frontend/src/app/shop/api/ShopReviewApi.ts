@@ -2,7 +2,7 @@ import axios, {AxiosResponse} from 'axios'
 import {Response} from "../helpers/query/QueryModels";
 import {Review} from "../models/ShopReviewModel";
 
-const API_URL = 'http://121.140.60.190:8080'
+const API_URL = 'http://localhost:8080'
 
 export const REVIEW_GET_URL = `${API_URL}/api/shop/review/get`
 export const REVIEW_SAVE_URL = `${API_URL}/api/shop/review/save`

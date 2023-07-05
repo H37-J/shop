@@ -52,7 +52,7 @@ const ShopProductManagementComponent: FC<Props> = ({
 
     const del = async (id: number) => {
         if(currentUser?.email !== 'these990712@gmail.com') {
-            toastDanger('권한이 없습니다')
+            toastDanger('이 관리자는 권한이 없습니다')
             return
         }
 
